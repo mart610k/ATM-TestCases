@@ -83,6 +83,8 @@ namespace ATM_TestCases.Cards
                 throw new ArgumentException("Value must be 4 characters long", "PinCode");
             }
             PinCode = pinCode;
+            ExpiryDate = expiryDate;
+
         }
     }
 }

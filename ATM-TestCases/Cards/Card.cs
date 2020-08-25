@@ -15,14 +15,22 @@ namespace ATM_TestCases.Cards
 
         protected int PinCode { get; set; }
 
+        protected int AmountFailedAttempts { get; set; }
+
         public bool CheckPin(ushort pinToCheck)
         {
-            if(pinToCheck == PinCode)
+            if(AmountFailedAttempts >= 3)
             {
+                throw new ArgumentException("Card have been locked after 3 failed attempts in a row", "pinToCheck");
+            }
+            else if(pinToCheck == PinCode)
+            {
+                AmountFailedAttempts = 0;
                 return true;
             }
             else
             {
+                AmountFailedAttempts++;
                 return false;
             }
         }
@@ -52,6 +60,7 @@ namespace ATM_TestCases.Cards
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
         {
+            AmountFailedAttempts = 0;
             if (Regex.IsMatch(cardNumber, "^[0-9]{16}$"))
             {
                 CardNumber = cardNumber;

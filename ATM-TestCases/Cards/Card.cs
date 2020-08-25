@@ -11,6 +11,8 @@ namespace ATM_TestCases.Cards
 
         public string CardNumber { get; protected set; }
 
+        protected decimal CurrentBalance { get; set; }
+
         public bool CheckPin(ushort pinToCheck)
         {
             throw new NotImplementedException();
@@ -18,7 +20,7 @@ namespace ATM_TestCases.Cards
 
         public decimal GetBalance()
         {
-            return 122M;
+            return CurrentBalance;
         }
 
         public decimal RemoveFromBalance(decimal amountToRemove)
@@ -36,6 +38,7 @@ namespace ATM_TestCases.Cards
             {
                 throw new ArgumentException("Value must contain 16 numbers", "CardNumber");
             }
+            CurrentBalance = startingBalance;
         }
     }
 }

@@ -43,8 +43,6 @@ namespace ATM_TestCases.Cards
             {
                 return amountToRemove;
             }
-
-            
         }
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)

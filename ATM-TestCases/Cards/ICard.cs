@@ -16,5 +16,7 @@ namespace ATM_TestCases.Cards
 
         decimal GetBalance();
 
+        bool CheckCardValidity();
+
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ATM_TestCases.Cards
 {
-    abstract class Card : ICard
+    public abstract class Card : ICard
     {
         public DateTime ExpiryDate => throw new NotImplementedException();
 

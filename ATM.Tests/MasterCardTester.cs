@@ -169,6 +169,18 @@ namespace ATM.Tests
 
             Assert.AreEqual(0, card.GetBalance());
         }
+        [Test]
+        public void CardLockedAfterThreeTimesOfWrongPin()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 5500m, 4322, new DateTime(2030, 10, 5));
+
+
+            card.CheckPin(3124);
+            card.CheckPin(3114);
+            card.CheckPin(3224);
+            Assert.Throws<ArgumentException>(() => card.CheckPin(4322), "pinToCheck");
+        } 
 
     }
 }

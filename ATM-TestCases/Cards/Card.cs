@@ -18,7 +18,7 @@ namespace ATM_TestCases.Cards
 
         public decimal GetBalance()
         {
-            throw new NotImplementedException();
+            return 122M;
         }
 
         public decimal RemoveFromBalance(decimal amountToRemove)

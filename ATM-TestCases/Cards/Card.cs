@@ -8,7 +8,7 @@ namespace ATM_TestCases.Cards
     {
         public DateTime ExpiryDate { get; }
 
-        public string CardNumber { get; }
+        public string CardNumber { get; protected set; }
 
         public bool CheckPin(ushort pinToCheck)
         {
@@ -27,7 +27,7 @@ namespace ATM_TestCases.Cards
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
         {
-            
+            CardNumber = cardNumber;
         }
     }
 }

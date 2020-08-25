@@ -45,6 +45,11 @@ namespace ATM_TestCases.Cards
             }
         }
 
+        public bool CheckCardValidity()
+        {
+            throw new NotImplementedException();
+        }
+
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
         {
             if (Regex.IsMatch(cardNumber, "^[0-9]{16}$"))

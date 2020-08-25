@@ -28,7 +28,7 @@ namespace ATM_TestCases.Cards
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
         {
-            if (Regex.IsMatch(cardNumber, "^[0-9]*$"))
+            if (Regex.IsMatch(cardNumber, "^[0-9]{16}$"))
             {
                 CardNumber = cardNumber;
             }

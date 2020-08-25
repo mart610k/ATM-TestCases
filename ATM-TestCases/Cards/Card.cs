@@ -34,7 +34,17 @@ namespace ATM_TestCases.Cards
 
         public decimal RemoveFromBalance(decimal amountToRemove)
         {
-            throw new NotImplementedException();
+            if(amountToRemove <= CurrentBalance)
+            {
+                CurrentBalance = CurrentBalance - amountToRemove;
+                return amountToRemove;
+            }
+            else
+            {
+                return amountToRemove;
+            }
+
+            
         }
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)

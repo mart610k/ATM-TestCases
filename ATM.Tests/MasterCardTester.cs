@@ -44,5 +44,17 @@ namespace ATM.Tests
             ICard card;
             Assert.Throws<ArgumentException>(() => card = new MasterCard("55F5555A55555555", 1000M, 4322, new DateTime(2030, 10, 5)), "CardNumber");
         }
+        [Test]
+        public void CardNumberNotLongerThan16Characters()
+        {
+            ICard card;
+            Assert.Throws<ArgumentException>(() => card = new MasterCard("5555555555555555545688", 1000M, 4322, new DateTime(2030, 10, 5)), "CardNumber");
+        }
+        [Test]
+        public void CardNumberNotLessThan16Characters()
+        {
+            ICard card;
+            Assert.Throws<ArgumentException>(() => card = new MasterCard("44456842548", 1000M, 4322, new DateTime(2030, 10, 5)), "CardNumber");
+        }
     }
 }

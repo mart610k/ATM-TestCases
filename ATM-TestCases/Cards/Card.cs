@@ -13,6 +13,8 @@ namespace ATM_TestCases.Cards
 
         protected decimal CurrentBalance { get; set; }
 
+        protected int PinCode { get; set; }
+
         public bool CheckPin(ushort pinToCheck)
         {
             throw new NotImplementedException();
@@ -47,6 +49,11 @@ namespace ATM_TestCases.Cards
                 throw new ArgumentException("Value must start at equal or more than 0", "StartingBalance");
             }
 
+            if(pinCode.ToString().Length != 4)
+            {
+                throw new ArgumentException("Value must be 4 characters long", "PinCode");
+            }
+            PinCode = pinCode;
         }
     }
 }

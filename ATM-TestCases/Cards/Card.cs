@@ -17,7 +17,14 @@ namespace ATM_TestCases.Cards
 
         public bool CheckPin(ushort pinToCheck)
         {
-            throw new NotImplementedException();
+            if(pinToCheck == PinCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public decimal GetBalance()

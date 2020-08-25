@@ -218,5 +218,13 @@ namespace ATM.Tests
 
             Assert.AreEqual(expected, card.ExpiryDate);
         }
+        [Test]
+        public void CheckCardIsValid()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 5500m, 4322, new DateTime(2030, 10, 5));
+
+            Assert.IsTrue(card.CheckCardValidity());
+        }
     }
 }

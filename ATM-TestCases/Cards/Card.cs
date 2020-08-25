@@ -55,7 +55,7 @@ namespace ATM_TestCases.Cards
 
         public bool CheckCardValidity()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)

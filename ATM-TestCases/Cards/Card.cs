@@ -24,5 +24,10 @@ namespace ATM_TestCases.Cards
         {
             throw new NotImplementedException();
         }
+
+        public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

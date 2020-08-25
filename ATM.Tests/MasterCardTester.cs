@@ -195,5 +195,28 @@ namespace ATM.Tests
             Assert.Throws<ArgumentException>(() => card.CheckPin(4322), "pinToCheck");
         }
 
+        /// <summary>
+        /// Default behavior of Datetime is not setting null, its set to 0001-01-01 00:00:00 by standard.
+        /// </summary>
+        [Test]
+        public void CheckCardValditityIsNotSetToDefault()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 5500m, 4322, new DateTime(2030, 10, 5));
+            
+
+            Assert.AreNotEqual(new DateTime() ,card.ExpiryDate);
+        }
+
+        [Test]
+        public void CheckCardValitityIsSetnInConstructor()
+        {
+            DateTime expected = new DateTime(2030, 10, 5);
+
+            ICard card;
+            card = new MasterCard("5555555555555555", 5500m, 4322, expected);
+
+            Assert.AreEqual(expected, card.ExpiryDate);
+        }
     }
 }

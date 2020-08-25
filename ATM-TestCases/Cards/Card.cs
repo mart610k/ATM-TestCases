@@ -6,9 +6,9 @@ namespace ATM_TestCases.Cards
 {
     public abstract class Card : ICard
     {
-        public DateTime ExpiryDate => throw new NotImplementedException();
+        public DateTime ExpiryDate { get; }
 
-        public string CardNumber => throw new NotImplementedException();
+        public string CardNumber { get; }
 
         public bool CheckPin(ushort pinToCheck)
         {

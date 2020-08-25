@@ -64,5 +64,13 @@ namespace ATM.Tests
 
             Assert.DoesNotThrow(() => card.GetBalance());
         }
+        [Test]
+        public void GetAccountBalanceReturnsStartingBalance()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 1000M, 4322, new DateTime(2030, 10, 5));
+
+            Assert.AreEqual(1000M , card.GetBalance());
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace ATM_TestCases.Cards
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

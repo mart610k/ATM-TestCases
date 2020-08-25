@@ -9,8 +9,6 @@ namespace ATM_TestCases.Cards
         public MasterCard(string cardNumber,decimal startingBalance,ushort pinCode,DateTime expiryDate) : base(cardNumber, startingBalance, pinCode, expiryDate)
         {
 
-
-            throw new NotImplementedException();
         }
     }
 }

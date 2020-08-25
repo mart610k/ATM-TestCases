@@ -93,5 +93,30 @@ namespace ATM.Tests
             Assert.Throws<ArgumentException>(() => new MasterCard("5555555555555555", 0M, pinToSet, new DateTime(2030, 10, 5)), "PinCode");
         }
 
+        [Test]
+        public void CheckPinCodeDoesNotThrow()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 0M, 4322, new DateTime(2030, 10, 5));
+            Assert.DoesNotThrow(() => card.CheckPin(4212));
+        }
+
+        [Test]
+        public void CheckPinCodeIsWrong()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 0M, 4322, new DateTime(2030, 10, 5));
+            Assert.IsFalse(card.CheckPin(4212));
+        }
+        [Test]
+        public void CheckPinCodeIsRight()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 0M, 4322, new DateTime(2030, 10, 5));
+            Assert.IsTrue(card.CheckPin(4322));
+        }
+
+     
+
     }
 }

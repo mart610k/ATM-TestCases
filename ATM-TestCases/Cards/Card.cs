@@ -38,7 +38,7 @@ namespace ATM_TestCases.Cards
             {
                 throw new ArgumentException("Value must contain 16 numbers", "CardNumber");
             }
-            if(0 < startingBalance)
+            if(0 <= startingBalance)
             {
                 CurrentBalance = startingBalance;
             }

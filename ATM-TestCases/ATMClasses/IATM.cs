@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ATM_TestCases.ATM
+namespace ATM_TestCases.ATMClasses
 {
-    interface IATM
+    public interface IATM
     {
         ICard CardInserted { get; }
 

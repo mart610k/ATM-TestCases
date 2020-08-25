@@ -7,7 +7,7 @@ namespace ATM_TestCases.ATMClasses
 {
     public class ATM : IATM
     {
-        public ICard CardInserted => throw new NotImplementedException();
+        public ICard CardInserted { get; protected set; }
 
         public decimal GetAccountBalance()
         {
@@ -21,7 +21,7 @@ namespace ATM_TestCases.ATMClasses
 
         public bool InsertCard(ICard cardInserted)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public ICard RemoveCard()

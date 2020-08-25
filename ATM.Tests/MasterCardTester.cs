@@ -116,7 +116,59 @@ namespace ATM.Tests
             Assert.IsTrue(card.CheckPin(4322));
         }
 
-     
+        [Test]
+        public void RemoveMoneyFromAccountDoesNotThrow()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 1000M, 4322, new DateTime(2030, 10, 5));
+            Assert.DoesNotThrow(() => card.RemoveFromBalance(100m));
+        }
+        [Test]
+        public void RemoveMoneyFromAccountDoesReturnValue()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 1000M, 4322, new DateTime(2030, 10, 5));
+            Assert.AreEqual(100m,card.RemoveFromBalance(100m));
+        }
+        [TestCase(122)]
+        [TestCase(124)]
+        [TestCase(444)]
+        [TestCase(666)]
+        [TestCase(999)]
+        public void RemoveMoneyFromAccountReturnsAmountBack(decimal expected)
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 1000M, 4322, new DateTime(2030, 10, 5));
+            Assert.AreEqual(expected, card.RemoveFromBalance(expected));
+        }
+        [TestCase(122)]
+        [TestCase(124)]
+        [TestCase(444)]
+        [TestCase(666)]
+        [TestCase(999)]
+        public void RemovedMoneyGetsRemovedFromAccount(decimal expectedToDraw)
+        {
+            ICard card;
+            decimal startingBalance = 1000M;
+            card = new MasterCard("5555555555555555", startingBalance, 4322, new DateTime(2030, 10, 5));
+            card.RemoveFromBalance(expectedToDraw);
+            decimal expectedResult = startingBalance - expectedToDraw;
+            Assert.AreEqual(expectedResult, card.GetBalance()); 
+        }
+
+        [TestCase(122)]
+        [TestCase(124)]
+        [TestCase(444)]
+        [TestCase(666)]
+        [TestCase(999)]
+        public void CanDrawAllMoneyOut(decimal startingAndPulled)
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", startingAndPulled, 4322, new DateTime(2030, 10, 5));
+            card.RemoveFromBalance(startingAndPulled);
+
+            Assert.AreEqual(0, card.GetBalance());
+        }
 
     }
 }

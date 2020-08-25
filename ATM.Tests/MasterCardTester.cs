@@ -56,5 +56,13 @@ namespace ATM.Tests
             ICard card;
             Assert.Throws<ArgumentException>(() => card = new MasterCard("44456842548", 1000M, 4322, new DateTime(2030, 10, 5)), "CardNumber");
         }
+        [Test]
+        public void GetAccountBalanceDoesNotThrow()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 1000M, 4322, new DateTime(2030, 10, 5));
+
+            Assert.DoesNotThrow(() => card.GetBalance());
+        }
     }
 }

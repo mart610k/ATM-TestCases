@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ATM_TestCases.Cards
 {
@@ -27,7 +28,14 @@ namespace ATM_TestCases.Cards
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)
         {
-            CardNumber = cardNumber;
+            if (Regex.IsMatch(cardNumber, "^[0-9]*$"))
+            {
+                CardNumber = cardNumber;
+            }
+            else
+            {
+                throw new ArgumentException("Value must contain 16 numbers", "CardNumber");
+            }
         }
     }
 }

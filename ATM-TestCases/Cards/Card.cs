@@ -55,7 +55,15 @@ namespace ATM_TestCases.Cards
 
         public bool CheckCardValidity()
         {
-            return true;
+            if(DateTime.Today <= ExpiryDate)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public Card(string cardNumber, decimal startingBalance, ushort pinCode, DateTime expiryDate)

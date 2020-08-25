@@ -77,5 +77,13 @@ namespace ATM.Tests
         {
             Assert.Throws<ArgumentException>(() => new MasterCard("5555555555555555", -1000M, 4322, new DateTime(2030, 10, 5)),"StartingBalance");
         }
+        [Test]
+        public void StartingBalanceCanStartOnZero()
+        {
+            ICard card;
+            card = new MasterCard("5555555555555555", 0M, 4322, new DateTime(2030, 10, 5));
+
+            Assert.AreEqual(0M, card.GetBalance());
+        }
     }
 }

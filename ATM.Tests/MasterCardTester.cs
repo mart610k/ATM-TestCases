@@ -85,5 +85,13 @@ namespace ATM.Tests
 
             Assert.AreEqual(0M, card.GetBalance());
         }
+
+        [TestCase((ushort)44358)]
+        [TestCase((ushort)443)]
+        public void PinCodeMustContainFourNumbers(ushort pinToSet)
+        {
+            Assert.Throws<ArgumentException>(() => new MasterCard("5555555555555555", 0M, pinToSet, new DateTime(2030, 10, 5)), "PinCode");
+        }
+
     }
 }

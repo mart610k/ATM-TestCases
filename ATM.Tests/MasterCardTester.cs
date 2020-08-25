@@ -4,7 +4,7 @@ using System.Text;
 using NUnit.Framework;
 using ATM_TestCases.Cards;
 
-namespace ATM.Tests
+namespace ATM_Tests
 {
     class MasterCardTester
     {

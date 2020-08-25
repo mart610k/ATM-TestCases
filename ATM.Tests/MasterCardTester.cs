@@ -32,5 +32,17 @@ namespace ATM.Tests
 
             Assert.AreNotEqual(null, card.CardNumber);
         }
+        [Test]
+        public void CardNumberThrowArgumentExecptionWhenContainsLowerCaseLetters()
+        {
+            ICard card;
+            Assert.Throws<ArgumentException>(() =>card = new MasterCard("55f5555a55555555", 1000M, 4322, new DateTime(2030, 10, 5)), "CardNumber");
+        }
+        [Test]
+        public void CardNumberThrowArgumentExecptionWhenContainsUpperCaseLetters()
+        {
+            ICard card;
+            Assert.Throws<ArgumentException>(() => card = new MasterCard("55F5555A55555555", 1000M, 4322, new DateTime(2030, 10, 5)), "CardNumber");
+        }
     }
 }

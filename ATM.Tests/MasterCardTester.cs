@@ -72,5 +72,10 @@ namespace ATM.Tests
 
             Assert.AreEqual(1000M , card.GetBalance());
         }
+        [Test]
+        public void AccountBalanceCanNotStartInNegativeValues()
+        {
+            Assert.Throws<ArgumentException>(() => new MasterCard("5555555555555555", -1000M, 4322, new DateTime(2030, 10, 5)),"StartingBalance");
+        }
     }
 }

@@ -21,7 +21,15 @@ namespace ATM_TestCases.ATMClasses
 
         public bool InsertCard(ICard cardInserted)
         {
-            return false;
+            if(CardInserted == null)
+            {
+                CardInserted = cardInserted;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public ICard RemoveCard()
